@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""This is the file storage class for the AirBnb"""
+"""This is the file storage class for the AirBnB"""
 import json
 import shlex
 from models.base_model import BaseModel
