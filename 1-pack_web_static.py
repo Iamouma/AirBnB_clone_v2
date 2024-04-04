@@ -13,13 +13,13 @@ def do_pack():
     """Archives the static files"""
     now = datetime.now().strftime("%Y%m%d%H%M%S")
 
-    archive_filepath = "versions/web_static_{}.tgz".format(now)
+    archive_path = "versions/web_static_{}.tgz".format(now)
 
     local("mkdir -p versions")
 
-    archived = local("tar -cvzf {} web_static".format(archive_filepath))
+    archived = local("tar -cvzf {} web_static".format(archive_path))
 
     if archived.return_code != 0:
         return None
     else:
-        return archive_filepath
+        return archive_path
