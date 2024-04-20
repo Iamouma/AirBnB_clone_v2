@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """This starts a Flask web applicaton"""
 
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -46,7 +46,7 @@ def is_a_numbet(n):
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
 def is_a_numbet_template(n=None):
-    """This Render a HTML page"""
+    """This Renders an HTML page"""
     return render_template('5-number.html', n=n)
 
 
