@@ -68,10 +68,11 @@ class DBStorage():
         """This creates all tables"""
         Base.metadata.create_all(self.__engine)
 
-        Session = sessionmaker(
-            bind=self.__engine, expire_on_commit=False)
-        session = scoped_session(Session)
-        self.__session = session()
+	if self.__session is None:
+            Session = sessionmaker(
+                bind=self.__engine, expire_on_commit=False)
+            session = scoped_session(Session)
+            self.__session = session()
 
     def close(self):
         """This closes the query"""
