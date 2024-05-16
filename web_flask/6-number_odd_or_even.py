@@ -2,6 +2,7 @@
 """This starts a Flask web applicaton"""
 
 from flask import Flask, render_template
+
 app = Flask(__name__)
 
 
@@ -53,7 +54,12 @@ def is_a_numbet_template(n=None):
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def odd_or_even_template(n=None):
     """Render a HTML page"""
-    return render_template('6-number_odd_or_even.html', n=n)
+    def number_odd_or_even(n):
+        if n % 2 == 0:
+            result = "even"
+        else:
+            result = "odd"
+    return render_template('6-number_odd_or_even.html', n=n, result=result)
 
 
 if __name__ == "__main__":
