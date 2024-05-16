@@ -35,7 +35,8 @@ def c_is_fun(text):
 @app.route('/python/<text>', strict_slashes=False)
 def python_is_cool(text):
     """The Routing to python with default value using Variables"""
-    text = text.replace('_', ' ')
+    text = text.replace('_',
+            ' ')
     return "Python {}".format(text)
 
 
@@ -54,13 +55,8 @@ def is_a_numbet_template(n=None):
 @app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
 def odd_or_even_template(n=None):
     """Render a HTML page"""
-    def number_odd_or_even(n):
-        if n % 2 == 0:
-            result = "even"
-        else:
-            result = "odd"
-    return render_template('6-number_odd_or_even.html', n=n, result=result)
+    return render_template('6-number_odd_or_even.html', n=n)
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5001)
+    app.run(debug=True, host='0.0.0.0', port=5001)
